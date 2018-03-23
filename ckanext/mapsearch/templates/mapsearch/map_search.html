@@ -1,0 +1,69 @@
+{% extends "mapsearch/base.html" %}
+
+{% block primary %}
+  <div class="map-search">
+    <div id="map"></div>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="toolbar">
+            <ol class="breadcrumb">
+              <li class="home">
+                <a href="/">
+                  <i class="icon-home"></i>
+                  <span> Home</span>
+                </a>
+              </li>
+              <li class="active">{% link_for _('Map Search'), controller='ckanext.mapsearch.controllers.view:ViewController', action='render_map_search' %}</li>
+            </ol>
+          </div>
+          <button type="button" class="btn pull-right" data-target="map-search-content">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="map-content-tab" class="active">
+      <div id="content-window">
+        <div id="content-tab-btns" class="btn-group btn-justified">
+          <button id="toggle-search-tab" class="btn active">Make Query</button>
+          <button id="toggle-results-tab" class="btn">View Results</button>
+        </div>
+        <div class="map-tab-pane active" id="search-tab">
+          <p>
+            Search the catalog with <strong>textual keywords</strong> or with a
+            drawn <strong>geographic extent</strong>.  Combine methods to
+            refine the query and continue submitting queries to add scope.
+          </p>
+          <div class="search-input-controls">
+            <div class="map-text-search">
+              <input type="text" id="text-search" placeholder="Enter some keywords">
+            </div>
+            <div class="map-area-search">
+              <button id="draw-area" class="btn btn-large btn-block">Draw an area</button>
+            </div>
+            <div class="map-search-controls">
+              <button id="submit-search" class="btn btn-large btn-block btn-primary">Search</button>
+              <button id="reset-search" class="btn btn-large btn-block btn-danger">Reset</button>
+            </div>
+          </div>
+        </div>
+        <div class="map-tab-pane" id="results-tab">
+          <div id="search-results">
+            <div id="result-count">Datasets Found 0</div>
+            <div class="results">
+
+            </div>
+          </div>
+          <div class="search-controls">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block secondary %}{% endblock %}
